@@ -14,19 +14,20 @@ public class Main {
         try (BufferedReader br = new BufferedReader(new FileReader("unsorteddict.txt"))) {
             String line;
             while ((line = br.readLine()) != null) {
+                // Add word by word in alphabetical order to list
                 dictionary.add(line);
             }
         }
 
         System.out.println(dictionary);
 
-        Collections.sort(dictionary);
+//        Collections.sort(dictionary);
         System.out.println(dictionary.toString());
 
         FileWriter fw = new FileWriter("sorteddict.txt");
 
         for (String temp : dictionary) {
-            fw.append(temp.toString());
+            fw.write(temp.toString());
         }
 
     }
