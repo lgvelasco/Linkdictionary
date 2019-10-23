@@ -37,6 +37,10 @@ public class LinkedList<E> {
 
             }
 
+        if (head.word.toString().compareToIgnoreCase((String) word) > 0) {
+            prepend(word);
+        }
+
         Node current = head;
         while(current.next != null) {
             if (current.word.toString().compareToIgnoreCase((String) word) < 0 && current.next.word.toString().compareToIgnoreCase((String) word) > 0) {
