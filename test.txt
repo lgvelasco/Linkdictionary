@@ -1,0 +1,7 @@
+tree
+apple
+fruit
+acid
+appetite
+Hello
+Animal
