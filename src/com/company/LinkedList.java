@@ -51,6 +51,11 @@ public class LinkedList<E> {
             }
             current = current.next;
         }
+        if (current.next == null) {
+            if (current.word.toString().compareToIgnoreCase((String) word) < 0) {
+                append(word);
+            }
+        }
 
     }
 
