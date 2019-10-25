@@ -1,6 +1,5 @@
 package com.company;
-
-import jdk.nashorn.internal.ir.WhileNode;
+import java.io.*;
 
 public class LinkedList<E> {
     Node head;
@@ -31,11 +30,8 @@ public class LinkedList<E> {
         } else if (head.next == null) {
             if (head.word.toString().compareToIgnoreCase((String) word) < 0 ) {
                 append(word);
-            } else {
-                prepend(word);
             }
-
-            }
+         }
 
         if (head.word.toString().compareToIgnoreCase((String) word) > 0) {
             prepend(word);
@@ -59,6 +55,55 @@ public class LinkedList<E> {
 
     }
 
+    public void addAlphabeticallyFromFile(String file){
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                addAlphabetically((E) line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Add to a LinkList from a File
+    public void addToFile(String file) throws IOException {
+        BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+
+        Node current = head;
+        while(current != null) {
+            bw.write(current.word.toString());
+            bw.newLine();
+            current = current.next;
+        }
+        bw.close();
+
+    }
+
+    // Return the index of a word
+    public int find(String word){
+        Node current = this.head;
+        int index = 0;
+        while (current != null) {
+            if (current.word.equals(word)) {
+                return index;
+            }
+            index ++;
+            current = current.next;
+        }
+        return -1;
+    }
+
+    // Get the word at that index
+    public String get(int index) {
+        Node current = this.head;
+        for (int i = 0; i < index; i++){
+            current = current.next;
+        }
+        return current.word.toString();
+    }
+
+    // Print all the words in the LinkList
     public void show()
     {
         Node node = head;
@@ -72,5 +117,3 @@ public class LinkedList<E> {
     }
 
 }
-
-//https://www.youtube.com/watch?v=njTh_OwMljA&t=219s
