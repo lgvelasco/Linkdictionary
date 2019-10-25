@@ -8,11 +8,9 @@ public class Main {
 
         LinkedList<String> dictionary = new LinkedList<String>();
 
-        dictionary.addAlphabeticallyFromFile("test.txt");
+        dictionary.addAlphabeticallyFromFile("unsorteddict.txt");
 
-        dictionary.show();
-
-        dictionary.addToFile("testSorted.txt");
+        dictionary.addToFile("sorteddict.txt");
 
         Scanner scan = new Scanner(System.in);
 
