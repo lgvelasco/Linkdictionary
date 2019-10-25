@@ -12,8 +12,6 @@ public class Main {
 
         dictionary.addToFile("sorteddict.txt");
 
-        ////
-
         Scanner scan = new Scanner(System.in);
 
         boolean flag = true;
