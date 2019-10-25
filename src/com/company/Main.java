@@ -6,6 +6,9 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
+
+        ///// Hello hello
+
         LinkedList<String> dictionary = new LinkedList<String>();
 
         dictionary.addAlphabeticallyFromFile("unsorteddict.txt");
