@@ -39,26 +39,26 @@ public class Node {
         }
     }
 
-    public String returnWordsInOrder() {
+    public void insertFromFile(String file){
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                insert(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+        public void addToFile(BufferedWriter bw) throws IOException {
         if (left != null) {
-            left.returnWordsInOrder();
+            left.addToFile(bw);
         }
-        return word;
-        if (right != null) {
-            right.printInOrder();
-        }
-    }
-
-    BufferedWriter bw = new BufferedWriter(new FileWriter(file));
-
-        if (head.left != null) {
-        head.left.printInOrder();
-    }
-        bw.write(head.word);
+        bw.write(word);
         bw.newLine();
-        if (head.right != null) {
-        head.right.printInOrder();
+        if (right != null) {
+            right.addToFile(bw);
+        }
     }
-        bw.close();
 
 }

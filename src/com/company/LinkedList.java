@@ -34,20 +34,20 @@ public class LinkedList<E> {
         }
     }
 
-    public void addToFile(String file) throws IOException {
-        BufferedWriter bw = new BufferedWriter(new FileWriter(file));
-
-        if (head.left != null) {
-            head.left.printInOrder();
-        }
-        bw.write(head.word);
-        bw.newLine();
-        if (head.right != null) {
-            head.right.printInOrder();
-        }
-        bw.close();
-
-    }
+//    public void addToFile(String file) throws IOException {
+//        BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+//
+//        if (head.left != null) {
+//            head.left.returnWordsInOrder(file);
+//        }
+//        bw.write(head.word);
+//        bw.newLine();
+//        if (head.right != null) {
+//            head.right.returnWordsInOrder(file);
+//        }
+//        bw.close();
+//
+//    }
 
     public void printInOrder() {
         if (head.left != null) {
