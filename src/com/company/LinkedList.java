@@ -39,7 +39,7 @@ public class LinkedList<E> {
 
         Node current = head;
         while(current.next != null) {
-            if (current.word.toString().compareToIgnoreCase((String) word) < 0 && current.next.word.toString().compareToIgnoreCase((String) word) > 0) {
+            if (current.next.word.toString().compareToIgnoreCase((String) word) > 0) {
                 Node move = current.next;
                 current.next = new Node(word);
                 current.next.next = move;

@@ -11,9 +11,9 @@ public class Main {
 
         LinkedList<String> dictionary = new LinkedList<String>();
 
-        dictionary.addAlphabeticallyFromFile("unsorteddict.txt");
+        dictionary.addAlphabeticallyFromFile("test.txt");
 
-        dictionary.addToFile("sorteddict.txt");
+        dictionary.addToFile("sortedtest.txt");
 
         Scanner scan = new Scanner(System.in);
 
