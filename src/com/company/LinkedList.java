@@ -40,7 +40,8 @@ public class LinkedList<E> {
         if (head.left != null) {
             head.left.printInOrder();
         }
-        System.out.println(head.word);
+        bw.write(head.word);
+        bw.newLine();
         if (head.right != null) {
             head.right.printInOrder();
         }

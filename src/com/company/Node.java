@@ -39,13 +39,13 @@ public class Node {
         }
     }
 
-//    public String returnWordsInOrder() {
-//        if (left != null) {
-//            left.returnWordsInOrder();
-//        }
-//        return word;
-//        if (right != null) {
-//            right.printInOrder();
-//        }
-//    }
+    public String returnWordsInOrder() {
+        if (left != null) {
+            left.returnWordsInOrder();
+        }
+        return word;
+        if (right != null) {
+            right.printInOrder();
+        }
+    }
 }

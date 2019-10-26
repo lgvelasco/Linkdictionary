@@ -13,7 +13,7 @@ public class Main {
         LinkedList dictionary = new LinkedList();
         dictionary.insertFromFile("unsorteddict.txt");
         long finish = System.currentTimeMillis();
-        System.out.println(start-finish);
+        System.out.println(finish-start);
         dictionary.printInOrder();
 
 
