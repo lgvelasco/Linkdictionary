@@ -1,11 +1,40 @@
 package com.company;
 
-public class Node <E>{
+import java.sql.SQLOutput;
 
-    Node next;
-    E word;
+public class Node {
 
-    public Node(E word) {
+    Node left;
+    Node right;
+    String word;
+
+    public Node(String word) {
         this.word = word;
+    }
+
+    public void insert(String word) {
+        if (this.word.compareToIgnoreCase(word) < 0) {
+            if (left == null) {
+                left = new Node(word);
+            } else {
+                left.insert(word);
+            }
+        } else {
+            if (right == null) {
+                right = new Node(word);
+            } else {
+                right.insert(word);
+            }
+        }
+    }
+
+    public void printInOrder() {
+        if (left != null) {
+            left.printInOrder();
+        }
+        System.out.println(word);
+        if (right != null) {
+
+        }
     }
 }
