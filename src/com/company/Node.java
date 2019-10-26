@@ -1,9 +1,10 @@
 package com.company;
 
-import java.sql.SQLOutput;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.*;
 
 public class Node {
-
     Node left;
     Node right;
     String word;
@@ -13,7 +14,7 @@ public class Node {
     }
 
     public void insert(String word) {
-        if (this.word.compareToIgnoreCase(word) < 0) {
+        if (this.word.compareToIgnoreCase(word) > 0) {
             if (left == null) {
                 left = new Node(word);
             } else {
@@ -34,7 +35,17 @@ public class Node {
         }
         System.out.println(word);
         if (right != null) {
-
+            right.printInOrder();
         }
     }
+
+//    public String returnWordsInOrder() {
+//        if (left != null) {
+//            left.returnWordsInOrder();
+//        }
+//        return word;
+//        if (right != null) {
+//            right.printInOrder();
+//        }
+//    }
 }

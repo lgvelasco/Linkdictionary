@@ -4,35 +4,64 @@ import java.io.*;
 public class LinkedList<E> {
     Node head;
 
+    public void insert(String word) {
+        if (head == null) {
+            head = new Node(word);
+        }
+        if (this.head.word.compareToIgnoreCase(word) > 0) {
+            if (head.left == null) {
+                head.left = new Node(word);
+            } else {
+                head.left.insert(word);
+            }
+        } else {
+            if (head.right == null) {
+                head.right = new Node(word);
+            } else {
+                head.right.insert(word);
+            }
+        }
+    }
+
+    public void insertFromFile(String file){
+        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+            String line;
+            while ((line = br.readLine()) != null) {
+                insert(line);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void addToFile(String file) throws IOException {
+        BufferedWriter bw = new BufferedWriter(new FileWriter(file));
+
+        if (head.left != null) {
+            head.left.printInOrder();
+        }
+        System.out.println(head.word);
+        if (head.right != null) {
+            head.right.printInOrder();
+        }
+        bw.close();
+
+    }
+
+    public void printInOrder() {
+        if (head.left != null) {
+            head.left.printInOrder();
+        }
+        System.out.println(head.word);
+        if (head.right != null) {
+            head.right.printInOrder();
+        }
+    }
 
 
 
 
 
-//    public void addAlphabeticallyFromFile(String file){
-//        try (BufferedReader br = new BufferedReader(new FileReader(file))) {
-//            String line;
-//            while ((line = br.readLine()) != null) {
-//                addAlphabetically((E) line);
-//            }
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//    }
-//
-//    // Add to a LinkList from a File
-//    public void addToFile(String file) throws IOException {
-//        BufferedWriter bw = new BufferedWriter(new FileWriter(file));
-//
-//        Node current = head;
-//        while(current != null) {
-//            bw.write(current.word.toString());
-//            bw.newLine();
-//            current = current.next;
-//        }
-//        bw.close();
-//
-//    }
 //
 //    // Return the index of a word
 //    public int find(String word){
