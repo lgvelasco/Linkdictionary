@@ -14,9 +14,7 @@ public class Main {
 
         Scanner scan = new Scanner(System.in);
 
-        boolean flag = true;
-
-        while (flag) {
+        for (int i = 0; i < 10; i++) {
             System.out.println("Please enter a command");
             System.out.println("If the argument is a number, the dictionary will print the word at that position.");
             System.out.println("If the argument is a word, the dictionary will print the position of that word.");
