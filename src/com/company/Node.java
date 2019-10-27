@@ -8,6 +8,7 @@ public class Node {
     Node left;
     Node right;
     String word;
+    int index = 0;
 
     public Node(String word) {
         this.word = word;
@@ -25,6 +26,24 @@ public class Node {
                 right = new Node(word);
             } else {
                 right.insert(word);
+            }
+        }
+    }
+
+    public boolean containsWord(String word) {
+        if (word.equalsIgnoreCase(this.word)) {
+            return true;
+        } else if (this.word.compareToIgnoreCase(word) > 0) {
+            if (left == null) {
+                return false;
+            } else {
+                return left.containsWord(word);
+            }
+        } else {
+            if (right == null) {
+                return false;
+            } else {
+                return right.containsWord(word);
             }
         }
     }
