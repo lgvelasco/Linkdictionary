@@ -104,4 +104,5 @@ public class Node {
         }
     }
 ```
+This class is also able to add nodes from a file, as well as print them into another in alphabetical order. Nevertheless, it's unable to return the index of a word, but can tell if it can be found in the dictionary. 
 ##### 0.3 seconds to complete. 
