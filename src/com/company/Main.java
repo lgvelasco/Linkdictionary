@@ -7,10 +7,10 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         long first = System.currentTimeMillis();
-        BufferedWriter bw = new BufferedWriter(new FileWriter("sorteddict.txt"));
+        BufferedWriter bw = new BufferedWriter(new FileWriter("sortedtest.txt"));
 
         Node start = new Node("discontents");
-        start.insertFromFile("unsorteddict.txt");
+        start.insertFromFile("test.txt");
         start.addToFile(bw);
         bw.close();
         long last = System.currentTimeMillis();
