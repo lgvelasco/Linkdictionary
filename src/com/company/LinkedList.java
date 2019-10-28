@@ -28,19 +28,18 @@ public class LinkedList<E> {
         if (head==null) {
             append(word);
         }
-        if (head.word.toString().compareToIgnoreCase((String) word) > 0) {
-            prepend(word);
-        }
 
          if (head.next == null) {
             if (head.word.toString().compareToIgnoreCase((String) word) < 0 ) {
                 append(word);
-            }
+            }if (head.word.toString().compareToIgnoreCase((String) word) > 0) {
+                 prepend(word);
+             }
          }
 
         Node current = head;
         while(current.next != null) {
-            if ( current.next.word.toString().compareToIgnoreCase((String) word) > 0) {
+            if (current.next.word.toString().compareToIgnoreCase((String) word) > 0) {
                 Node move = current.next;
                 current.next = new Node(word);
                 current.next.next = move;
