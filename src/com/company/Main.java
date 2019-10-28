@@ -6,14 +6,20 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        long first = System.currentTimeMillis();
+
         BufferedWriter bw = new BufferedWriter(new FileWriter("sortedtest.txt"));
 
         Node start = new Node("discontents");
+
+        long first = System.currentTimeMillis();
         start.insertFromFile("test.txt");
+        long last = System.currentTimeMillis();
+        System.out.println(last-first);
+
+        first = System.currentTimeMillis();
         start.addToFile(bw);
         bw.close();
-        long last = System.currentTimeMillis();
+        last = System.currentTimeMillis();
         System.out.println(last-first);
 
         Scanner scan = new Scanner(System.in);
