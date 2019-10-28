@@ -8,9 +8,15 @@ public class Main {
 
         LinkedList<String> dictionary = new LinkedList<String>();
 
+        long start = System.currentTimeMillis();
         dictionary.addAlphabeticallyFromFile("test.txt");
+        long end = System.currentTimeMillis();
+        System.out.println(end - start);
 
+        start = System.currentTimeMillis();
         dictionary.addToFile("sortedtest.txt");
+        end = System.currentTimeMillis();
+        System.out.println(end - start);
 
         Scanner scan = new Scanner(System.in);
 
