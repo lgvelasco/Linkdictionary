@@ -106,3 +106,118 @@ public class Node {
 ```
 This class is also able to add nodes from a file, as well as print them into another in alphabetical order. Nevertheless, it's unable to return the index of a word, but can tell if it can be found in the dictionary. 
 ##### 0.3 seconds to complete. 
+
+# Part 2 
+All further changes (Verification Test, Preformance Test, and checking against different inputs) can be found in the *faster branch*. 
+
+## Verification Test
+In order to check if the words in our new created document are correctly sorted, the method _compareTwoFiles_ was created. The method compares two documents as return _-1_ if they are different, and _0_ if they are the same. 
+``` java 
+    public static int compareTwoFiles(String file1, String file2) throws IOException {
+
+        BufferedReader fileOne = new BufferedReader(new FileReader(file1));
+        BufferedReader fileTwo = new BufferedReader(new FileReader(file2));
+
+        String line;
+        String line2;
+
+        while ((line = fileOne.readLine()) != null && (line2 = fileTwo.readLine()) != null) {
+
+            if (!line.equalsIgnoreCase(line2)) {
+                return -1;
+            }
+
+        }
+
+        return 0;
+    }
+```
+This method is available thorugh the _main_ by writing _check_; it returned 0 for both the 10,000 and 1000,000 word documents. 
+
+## Preformance Test 
+Various timers are set throughout the project in order to test preformance, additionally a method _preformanceTest_ was created in order to get the average time in milliseconds of two major tasks; reading from a file and adding the word to a binary tree, and adding the binary tree to a new document. 
+
+```java
+    public static void performanceTest() throws IOException {
+
+        long insert = 0;
+        long insertMin = 0;
+        long insertMax = 0;
+
+        long write = 0;
+        long writeMin = 0;
+        long writeMax = 0;
+
+
+        for (int i = 0; i < 10; i ++) {
+            BufferedWriter bw = new BufferedWriter(new FileWriter("sortedtest.txt"));
+
+            Node start = new Node("discontents");
+
+            long first = System.currentTimeMillis();
+            start.insertFromFile("test.txt");
+            long last = System.currentTimeMillis();
+
+            if (insertMin == 0) {
+                insertMin = (last-first);
+            } else if ((last-first) < insertMin) {
+                insertMin = (last-first);
+            }
+            if ((last-first) > insertMax) {
+                insertMax = (last-first);
+            }
+            insert = (insert + (last-first));
+
+            first = System.currentTimeMillis();
+            start.addToFile(bw);
+            bw.close();
+            last = System.currentTimeMillis();
+            if (writeMin == 0) {
+                writeMin = (last-first);
+            } else if ((last-first) < writeMin) {
+                writeMin = (last-first);
+            }
+            if ((last-first) > writeMax) {
+                writeMax = (last-first);
+            }
+            write = (write + (last-first));
+        }
+
+        System.out.println("The average insert time is: " + (insert/10));
+        System.out.println("Max time: " + insertMax);
+        System.out.println("Min time: " + insertMin);
+        System.out.println();;
+        System.out.println("The average write time is: " + (write/10));
+        System.out.println("Max time: " + writeMax);
+        System.out.println("Min time: " + writeMin);
+
+    }
+```
+#### For 10,000 words
+> The average insert time is: 11
+>
+> Max time: 34. 
+> Min time: 6. 
+>
+> The average write time is: 4. 
+>
+> Max time: 10. 
+> Min time: 1. 
+>
+>Process finished with exit code 0
+#### For 100,000 words
+> The average insert time is: 129
+> 
+> Max time: 185
+> Min time: 74
+>
+> The average write time is: 17
+> 
+> Max time: 57
+> Min time: 7
+> 
+> Process finished with exit code 0
+
+After analysing the respective times of tasks, no bottlenecks were discoverd. As the program cannot be improved using binary trees. 
+
+## Checking agaisnt different inputs
