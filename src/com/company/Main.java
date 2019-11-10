@@ -89,13 +89,13 @@ public class Main {
         long first = System.currentTimeMillis();
         start.insertFromFile("test.txt");
         long last = System.currentTimeMillis();
-        System.out.println("Time to insert to the binary tree: " + (last-first) + "milliseconds");
+        System.out.println("Time to insert to the binary tree: " + (last-first) + " milliseconds");
 
         first = System.currentTimeMillis();
         start.addToFile(bw);
         bw.close();
         last = System.currentTimeMillis();
-        System.out.println("Time to add to a file: " + (last-first) + "milliseconds");
+        System.out.println("Time to add to a file: " + (last-first) + " milliseconds");
 
         Scanner scan = new Scanner(System.in);
         for (int i = 0; i < 10; i++ ) {
