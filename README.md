@@ -134,7 +134,7 @@ In order to check if the words in our new created document are correctly sorted,
 ```
 This method is available thorugh the _main_ by writing _check_; it returned 0 for both the 10,000 and 1000,000 word documents. 
 
-## Preformance Test 
+## Performance Test 
 Various timers are set throughout the project in order to test preformance, additionally a method _preformanceTest_ was created in order to get the average time in milliseconds of two major tasks; reading from a file and adding the word to a binary tree, and adding the binary tree to a new document. 
 
 ```java
@@ -220,4 +220,15 @@ Various timers are set throughout the project in order to test preformance, addi
 
 After analysing the respective times of tasks, no bottlenecks were discoverd. As the program cannot be improved using binary trees. 
 
-## Checking agaisnt different inputs
+## Checking against different inputs
+In order to differentiate between a number and a word within the user's input, regular expressions were used.
+```java
+ if(command.matches("^-?\\d+$")) {
+ ```
+ Other constraints were added to different methods in order to control user inputs. For example, in the _fingWord_ method. If the index is greated than the number of words, the program will return: _"That index is out of bounds"_. 
+ ```java
+  if (lines < index) {
+            word = "That index is out of bounds";
+        }
+```
+
