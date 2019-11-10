@@ -84,7 +84,7 @@ public class LinkedList<E> {
     // Return the index of a word
     public int find(String word){
         Node current = this.head;
-        int index = 0;
+        int index = 1;
         while (current != null) {
             if (current.word.equals(word)) {
                 return index;

@@ -32,7 +32,7 @@ public class Main {
             }
 
             // Regex to see if the command is and integer or a string
-            if(command.matches("^\\d+(\\.\\d+)?")) {
+            if(command.matches("^-?\\d+$")) {
                 int index = Integer.parseInt(command);
 
                 if (index == -1) {
