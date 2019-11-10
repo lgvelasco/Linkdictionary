@@ -98,8 +98,7 @@ public class Main {
         System.out.println("Time to add to a file: " + (last-first) + "milliseconds");
 
         Scanner scan = new Scanner(System.in);
-        boolean flag = true;
-        while (flag) {
+        for (int i = 0; i < 10; i++ ) {
             System.out.println("Enter a command");
             String command = scan.nextLine();
 
@@ -112,14 +111,7 @@ public class Main {
                     System.out.println(wordAtIndex(temp, "sortedtest.txt"));
                 }
             } else {
-                if (command.equalsIgnoreCase("exit")) {
-                    flag = false;
-                } else if (command.equalsIgnoreCase("check")) {
-                    System.out.println(compareTwoFiles("sortedtest.txt", "sortedtest_2.txt"));
-                } else {
-                    System.out.println(start.containsWord(command));
-
-                }
+                System.out.println(findWord(command, "sortedtest.txt"));
             }
 
         }
@@ -128,13 +120,36 @@ public class Main {
 
     public static String wordAtIndex(int index, String file) throws IOException {
         BufferedReader br = new BufferedReader(new FileReader(file));
-
         String word = "";
+
+        int lines = 0;
+        while (br.readLine() != null) lines++;
+
+        if (lines < index) {
+            word = "That index is out of bounds";
+        }
 
         for (int i = 0; i < index; i ++) {
             word = br.readLine();
         }
         return word;
+    }
+
+    public static int findWord(String word, String file) throws IOException {
+        int index = 1;
+
+        BufferedReader br = new BufferedReader(new FileReader(file));
+
+        String line;
+
+        while ((line = br.readLine()) != null) {
+            if (line.equals(word)) {
+                return index;
+            }
+            index++;
+        }
+
+        return -1;
     }
 }
 
