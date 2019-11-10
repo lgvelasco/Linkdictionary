@@ -27,33 +27,34 @@ public class LinkedList<E> {
     public void addAlphabetically(E word) {
         if (head==null) {
             append(word);
-        }
-
-         if (head.next == null) {
+        } else if (head.next == null) {
             if (head.word.toString().compareToIgnoreCase((String) word) < 0 ) {
                 append(word);
-            }if (head.word.toString().compareToIgnoreCase((String) word) > 0) {
-                 prepend(word);
-             }
+            }
          }
 
-        Node current = head;
-        while(current.next != null) {
-            if (current.next.word.toString().compareToIgnoreCase((String) word) > 0) {
-                Node move = current.next;
-                current.next = new Node(word);
-                current.next.next = move;
-                return;
+        if (head.word.toString().compareToIgnoreCase((String) word) > 0) {
+            prepend(word);
+        } else {
+            Node current = head;
+            while(current.next != null) {
+                if (current.next.word.toString().compareToIgnoreCase((String) word) > 0) {
+                    Node move = current.next;
+                    current.next = new Node(word);
+                    current.next.next = move;
+                    return;
+                }
+                current = current.next;
             }
-            current = current.next;
-        }
-        if (current.next == null) {
-            if (current.word.toString().compareToIgnoreCase((String) word) < 0) {
-                append(word);
+            if (current.next == null) {
+                if (current.word.toString().compareToIgnoreCase((String) word) < 0) {
+                    append(word);
+                }
             }
         }
 
     }
+
 
     public void addAlphabeticallyFromFile(String file){
         try (BufferedReader br = new BufferedReader(new FileReader(file))) {

@@ -34,13 +34,35 @@ public class Main {
             // Regex to see if the command is and integer or a string
             if(command.matches("^\\d+(\\.\\d+)?")) {
                 int index = Integer.parseInt(command);
-                System.out.println(dictionary.get(index));
+
+                if (index == -1) {
+                    System.out.println(compareTwoFiles("solution_test.txt", "sortedtest.txt"));
+                } else {
+                    System.out.println(dictionary.get(index));
+                }
             } else {
                 int index = dictionary.find(command);
                 System.out.println(index);
             }
 
         }
+    }
+
+    public static int compareTwoFiles(String file1, String file2) throws IOException {
+
+        BufferedReader fileOne = new BufferedReader(new FileReader(file1));
+        BufferedReader fileTwo = new BufferedReader(new FileReader(file2));
+
+        String line;
+        String line2;
+
+        while ((line = fileOne.readLine()) != null && (line2 = fileTwo.readLine()) != null) {
+            if (!line.equalsIgnoreCase(line2)) {
+                return -1;
+            }
+        }
+
+        return 0;
     }
 }
 
