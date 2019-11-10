@@ -98,24 +98,44 @@ public class Main {
         System.out.println("Time to add to a file: " + (last-first) + "milliseconds");
 
         Scanner scan = new Scanner(System.in);
-
         boolean flag = true;
         while (flag) {
             System.out.println("Enter a command");
             String command = scan.nextLine();
-            if (command.equalsIgnoreCase("exit")) {
-                flag = false;
-            } else if (command.equalsIgnoreCase("check")) {
-                System.out.println(compareTwoFiles("sortedtest.txt", "sortedtest_2.txt"));
-            } else {
-                System.out.println(start.containsWord(command));
 
+            if(command.matches("^-?\\d+$")) {
+                int temp = Integer.parseInt(command);
+
+                if (temp == -1) {
+                    System.out.println(compareTwoFiles("sortedtest.txt", "sortedtest_2.txt"));
+                } else {
+                    System.out.println(wordAtIndex(temp, "sortedtest.txt"));
+                }
+            } else {
+                if (command.equalsIgnoreCase("exit")) {
+                    flag = false;
+                } else if (command.equalsIgnoreCase("check")) {
+                    System.out.println(compareTwoFiles("sortedtest.txt", "sortedtest_2.txt"));
+                } else {
+                    System.out.println(start.containsWord(command));
+
+                }
             }
+
         }
 
     }
 
+    public static String wordAtIndex(int index, String file) throws IOException {
+        BufferedReader br = new BufferedReader(new FileReader(file));
 
+        String word = "";
+
+        for (int i = 0; i < index; i ++) {
+            word = br.readLine();
+        }
+        return word;
+    }
 }
 
 
