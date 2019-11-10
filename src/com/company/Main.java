@@ -36,7 +36,7 @@ public class Main {
                 int index = Integer.parseInt(command);
 
                 if (index == -1) {
-                    System.out.println(compareTwoFiles("solution_test.txt", "sortedtest.txt"));
+                    System.out.println(compareTwoFiles("sortedtest.txt", "solution_test.txt"));
                 } else {
                     System.out.println(dictionary.get(index));
                 }
