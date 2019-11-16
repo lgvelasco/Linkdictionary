@@ -46,6 +46,8 @@ are some examples:
   * findWordAtAnIndex()
   * findIndexOfAWordInTheSortedLinkedList()
   
+* The _Node.java_ class was renamed to _treeNode.java_, as it is not a regular node and possesses other properties
+  
 ### End Result
 The end result allows the reader of the code to follow it more fluently. The names of the methods accurately describe what they do, meaning that the reader does not need to read the actual code within each method. 
 ``` java
