@@ -11,7 +11,7 @@ Faster branch code was refactored using the following principles:
 * Keep your code simple
 * You ain’t gonna need it
 
-###Examples
+### Examples
 Although changes where made through the entirety of the code, here
 are some examples:
 
