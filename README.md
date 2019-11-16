@@ -47,3 +47,15 @@ are some examples:
   * findIndexOfAWordInTheSortedLinkedList()
   
 ### End Result
+The end result allows the reader of the code to follow it more fluently. The names of the methods accurately describe what they do, meaning that the reader does not need to read the actual code within each method. 
+``` java
+    public static void main(String[] args) throws IOException {
+
+        // performanceTestForAddingFromAFileAndWritingToAnother();
+
+        createSortedLinkedListFromFileAndAddItToNewFile();
+
+        allow10UserInputsToFindWordsInTheSortedLinkedList();
+
+    }
+```
