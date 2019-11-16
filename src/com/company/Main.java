@@ -17,7 +17,7 @@ public class Main {
     public static void createSortedLinkedListFromFileAndAddItToNewFile() throws IOException {
         BufferedWriter bw = new BufferedWriter(new FileWriter("sortedtest.txt"));
 
-        Node start = new Node("discontents");
+        treeNode start = new treeNode("discontents");
 
         long first = System.currentTimeMillis();
         start.insertFromFile("test.txt");
@@ -85,7 +85,7 @@ public class Main {
         for (int i = 0; i < 10; i ++) {
             BufferedWriter bw = new BufferedWriter(new FileWriter("sortedtest.txt"));
 
-            Node start = new Node("discontents");
+            treeNode start = new treeNode("discontents");
 
             long first = System.currentTimeMillis();
             start.insertFromFile("unsorteddict.txt");

@@ -4,26 +4,26 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.*;
 
-public class Node {
-    Node left;
-    Node right;
+public class treeNode {
+    treeNode left;
+    treeNode right;
     String word;
     int index = 0;
 
-    public Node(String word) {
+    public treeNode(String word) {
         this.word = word;
     }
 
     public void insert(String word) {
         if (this.word.compareToIgnoreCase(word) > 0) {
             if (left == null) {
-                left = new Node(word);
+                left = new treeNode(word);
             } else {
                 left.insert(word);
             }
         } else {
             if (right == null) {
-                right = new Node(word);
+                right = new treeNode(word);
             } else {
                 right.insert(word);
             }
