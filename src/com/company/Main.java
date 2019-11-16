@@ -8,6 +8,13 @@ public class Main {
 
         // performanceTestForAddingFromAFileAndWritingToAnother();
 
+        createSortedLinkedListFromFileAndAddItToNewFile();
+
+        allow10UserInputsToFindWordsInTheSortedLinkedList();
+
+    }
+
+    public static void createSortedLinkedListFromFileAndAddItToNewFile() throws IOException {
         BufferedWriter bw = new BufferedWriter(new FileWriter("sortedtest.txt"));
 
         Node start = new Node("discontents");
@@ -22,7 +29,9 @@ public class Main {
         bw.close();
         last = System.currentTimeMillis();
         System.out.println("Time to add to a file: " + (last-first) + " milliseconds");
+    }
 
+    public static void allow10UserInputsToFindWordsInTheSortedLinkedList() throws IOException {
         Scanner scan = new Scanner(System.in);
         for (int i = 0; i < 10; i++ ) {
             System.out.println("Enter a command");
@@ -34,14 +43,13 @@ public class Main {
                 if (temp == -1) {
                     System.out.println(compareIfTwoTextFilesAreTheSame("sortedtest.txt", "sortedtest_2.txt"));
                 } else {
-                    System.out.println(wordAtIndex(temp, "sortedtest.txt"));
+                    System.out.println(findWordAtAnIndex(temp, "sortedtest.txt"));
                 }
             } else {
-                System.out.println(findWord(command, "sortedtest.txt"));
+                System.out.println(findIndexOfAWordInTheSortedLinkedList(command, "sortedtest.txt"));
             }
 
         }
-
     }
 
     public static int compareIfTwoTextFilesAreTheSame(String file1, String file2) throws IOException {
@@ -118,7 +126,7 @@ public class Main {
 
     }
 
-    public static String wordAtIndex(int index, String file) throws IOException {
+    public static String findWordAtAnIndex(int index, String file) throws IOException {
         BufferedReader br = new BufferedReader(new FileReader(file));
         String word = "";
 
@@ -135,7 +143,7 @@ public class Main {
         return word;
     }
 
-    public static int findWord(String word, String file) throws IOException {
+    public static int findIndexOfAWordInTheSortedLinkedList(String word, String file) throws IOException {
         int index = 1;
 
         BufferedReader br = new BufferedReader(new FileReader(file));
