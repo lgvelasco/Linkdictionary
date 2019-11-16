@@ -43,4 +43,7 @@ are some examples:
   * createSortedLinkedListFromFileAndAddItToNewFile()
   * allow10UserInputsToFindWordsInTheSortedLinkedList()
   * performanceTestForAddingFromAFileAndWritingToAnother()
-  * findWordAtAnIndex
+  * findWordAtAnIndex()
+  * findIndexOfAWordInTheSortedLinkedList()
+  
+### End Result
