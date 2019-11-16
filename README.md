@@ -2,7 +2,7 @@
 ##### By: Luis Guillermo Velasco & Carmen Oballe
 
 ## Refactor Branch
-Faster branch code was refactored using the following principles:
+Unknowingly, most of the principles were already followed when wiritng the code. Hence, there are not a lot of changes. Nevertheless the faster branch code was refactored using the following principles:
 * Meaningful names
 * Keep functions small
 * Avoid redundant commenting
