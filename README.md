@@ -40,7 +40,7 @@ are some examples:
 * The _LinkedList.java_ class was deleted as it was not being used 
 
 * Methods were reanmed to better express their function
- * createSortedLinkedListFromFileAndAddItToNewFile()
- * allow10UserInputsToFindWordsInTheSortedLinkedList()
- * performanceTestForAddingFromAFileAndWritingToAnother()
- * findWordAtAnIndex
+  * createSortedLinkedListFromFileAndAddItToNewFile()
+  * allow10UserInputsToFindWordsInTheSortedLinkedList()
+  * performanceTestForAddingFromAFileAndWritingToAnother()
+  * findWordAtAnIndex
