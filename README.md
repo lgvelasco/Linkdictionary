@@ -232,3 +232,5 @@ In order to differentiate between a number and a word within the user's input, r
         }
 ```
 
+# Part 3 Refactoring
+All refactor changes can be found in the _refactor_ branch.
